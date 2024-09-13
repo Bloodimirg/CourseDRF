@@ -1,32 +1,53 @@
 [
   {
-    "model": "materials.lesson",
-    "pk": 4,
-    "fields": {
-      "title": "Вьюсеты и generics",
-      "image": "",
-      "description": null,
-      "video_url": null
-    }
-  },
-  {
     "model": "materials.course",
-    "pk": 3,
-    "fields": {
-      "title": "Курсы без уроков",
-      "image": "",
-      "description": null,
-      "lesson": null
-    }
-  },
-  {
-    "model": "materials.course",
-    "pk": 4,
+    "pk": 1,
     "fields": {
       "title": "DRF",
       "image": "",
+      "description": null
+    }
+  },
+  {
+    "model": "materials.course",
+    "pk": 2,
+    "fields": {
+      "title": "Курс по PostgreSQL",
+      "image": "",
+      "description": ""
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 1,
+    "fields": {
+      "title": "Вьюсеты",
+      "image": "",
       "description": null,
-      "lesson": 4
+      "video_url": null,
+      "course": 1
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 2,
+    "fields": {
+      "title": "Дженерики",
+      "image": "",
+      "description": "второй урок",
+      "video_url": null,
+      "course": 1
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 3,
+    "fields": {
+      "title": "Базы данных",
+      "image": "",
+      "description": null,
+      "video_url": null,
+      "course": 1
     }
   }
 ]
