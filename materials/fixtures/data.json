@@ -1,53 +1,24 @@
 [
   {
     "model": "materials.course",
-    "pk": 1,
+    "pk": 6,
     "fields": {
-      "title": "DRF",
+      "title": "Course-USER1",
       "image": "",
-      "description": null
-    }
-  },
-  {
-    "model": "materials.course",
-    "pk": 2,
-    "fields": {
-      "title": "Курс по PostgreSQL",
-      "image": "",
-      "description": ""
+      "description": null,
+      "owner": 3
     }
   },
   {
     "model": "materials.lesson",
-    "pk": 1,
+    "pk": 8,
     "fields": {
-      "title": "Вьюсеты",
+      "title": "Lesson-USER1",
       "image": "",
       "description": null,
       "video_url": null,
-      "course": 1
-    }
-  },
-  {
-    "model": "materials.lesson",
-    "pk": 2,
-    "fields": {
-      "title": "Дженерики",
-      "image": "",
-      "description": "второй урок",
-      "video_url": null,
-      "course": 1
-    }
-  },
-  {
-    "model": "materials.lesson",
-    "pk": 3,
-    "fields": {
-      "title": "Базы данных",
-      "image": "",
-      "description": null,
-      "video_url": null,
-      "course": 1
+      "course": 6,
+      "owner": 3
     }
   }
 ]
