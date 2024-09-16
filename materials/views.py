@@ -50,28 +50,41 @@ class LessonCreateApiView(CreateAPIView):
     """Создание урока"""
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
+    permission_classes = (~IsModerator, IsAuthenticated)
 
-
-class LessonUpdateApiView(UpdateAPIView):
-    """Изменение существующего урока"""
-    queryset = Lesson.objects.all()
-    serializer_class = LessonSerializer
-
+    def perform_create(self, serializer):
+        lesson = serializer.save()
+        lesson.owner = self.request.user
+        lesson.save()
 
 class LessonListApiView(ListAPIView):
     """Получение списка всех уроков."""
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
-
+    permission_classes = (IsAuthenticated, IsOwner | IsModerator)
+    # фильтрация отображения списка объектов только для модератора или владельца объекта
+    def get_queryset(self):
+        user = self.request.user
+        if user.groups.filter(name='moderator').exists():
+            return Lesson.objects.all()
+        else:
+            return Lesson.objects.filter(owner=user)
 
 class LessonRetrieveApiView(RetrieveAPIView):
     """Получение деталей конкретного урока."""
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
+    permission_classes = (IsAuthenticated, IsModerator | IsOwner)
 
+class LessonUpdateApiView(UpdateAPIView):
+    """Изменение существующего урока"""
+    queryset = Lesson.objects.all()
+    serializer_class = LessonSerializer
+    permission_classes = (IsAuthenticated, IsModerator | IsOwner)
 
 class LessonDestroyApiView(DestroyAPIView):
     """Удаление существующего урока"""
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
+    permission_classes = (IsAuthenticated, IsOwner | ~IsModerator)
 
