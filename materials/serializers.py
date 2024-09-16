@@ -11,7 +11,7 @@ class LessonSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    """Стандартный вывод информации о курсах"""
+    """Вывод информации о курсах"""
     lessons = LessonSerializer(source="lesson_set", many=True, read_only=True, required=False)
     count_lessons = serializers.SerializerMethodField()
 
@@ -25,6 +25,7 @@ class CourseSerializer(serializers.ModelSerializer):
             "title",
             "image",
             "description",
+            "owner",
             "count_lessons",
             "lessons",
         ]
