@@ -36,6 +36,10 @@ class Lesson(models.Model):
     class Meta:
         verbose_name = "Урок"
         verbose_name_plural = "Уроки"
+        permissions = [
+            ('can_view_lesson', 'Может просматривать уроки'),
+            ('can_edit_lesson', 'Может редактировать уроки'),
+        ]
 
     def __str__(self):
         return self.title
