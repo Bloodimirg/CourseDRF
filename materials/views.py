@@ -5,6 +5,7 @@ from rest_framework.generics import (
     RetrieveAPIView,
     UpdateAPIView,
 )
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
 from materials.models import Course, Lesson
@@ -12,6 +13,7 @@ from materials.serializers import (
     CourseSerializer,
     LessonSerializer,
 )
+from users.permissions import IsModerator, IsOwner
 
 
 # ----------------------------------------- ViewSet курсов
