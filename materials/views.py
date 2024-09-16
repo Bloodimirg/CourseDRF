@@ -1,4 +1,3 @@
-from rest_framework.decorators import action
 from rest_framework.generics import (
     CreateAPIView,
     DestroyAPIView,
@@ -6,14 +5,12 @@ from rest_framework.generics import (
     RetrieveAPIView,
     UpdateAPIView,
 )
-from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from materials.models import Course, Lesson
 from materials.serializers import (
     CourseSerializer,
     LessonSerializer,
-    CourseDetailSerializer, CourseWithCountSerializer,
 )
 
 
@@ -22,22 +19,6 @@ class CourseViewSet(ModelViewSet):
     """ViewSet для управления курсами. POST/GET/PUT(PATCH)/DELETE"""
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-
-    def get_serializer_class(self):
-        if self.action == "list":
-            return CourseSerializer  # Список курсов
-        elif self.action == "retrieve":
-            return CourseDetailSerializer  # Курс с количеством уроков и уроками
-        elif self.action == "list_with_count":
-            return CourseWithCountSerializer  # Курсы с количеством уроков
-        return CourseSerializer
-
-    @action(detail=False, methods=['get'])
-    def list_with_count(self, request):
-        """Эндпоинт для вывода курсов с количеством уроков"""
-        queryset = self.get_queryset()
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
 
 
 # ----------------------------------------- Generics уроков
