@@ -20,6 +20,28 @@ class CourseViewSet(ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 
+    def perform_create(self, serializer):
+        course = serializer.save()
+        course.owner = self.request.user
+        course.save()
+
+    def get_permissions(self):
+        if self.action == 'create':
+            self.permission_classes = (~IsModerator,) # создавать могут не модераторы
+        elif self.action in ['update', 'retrieve', 'partial_update']:
+            self.permission_classes = (IsModerator | IsOwner,) # обновлять может модератор или владелец
+        elif self.action == 'destroy':
+            self.permission_classes = (~IsModerator | IsOwner,) # удалять может не модератор или владелец
+        return super().get_permissions()
+
+    # Отображение списка объектов только если модератор, или владелец объектов
+    def get_queryset(self):
+        user = self.request.user
+        if user.groups.filter(name='moderator').exists():
+            return Course.objects.all()
+        else:
+            return Course.objects.filter(owner=user)
+
 
 # ----------------------------------------- Generics уроков
 class LessonCreateApiView(CreateAPIView):
