@@ -1,10 +1,13 @@
 from rest_framework import serializers
 
 from materials.models import Course, Lesson
+from materials.validators import validate_urls
 
 
 class LessonSerializer(serializers.ModelSerializer):
     """Информация об уроках"""
+    url_validator = serializers.URLField(validators=[validate_urls])
+
     class Meta:
         model = Lesson
         fields = "__all__"
