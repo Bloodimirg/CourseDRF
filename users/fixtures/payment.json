@@ -1,0 +1,38 @@
+[
+  {
+    "model": "users.payment",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "date_payment": "2024-09-13T01:54:27.016Z",
+      "lesson_paid": 1,
+      "course_paid": 1,
+      "amount": "900.00",
+      "payment_type": "Кредитная карта"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "date_payment": "2024-09-13T03:35:02.904Z",
+      "lesson_paid": 2,
+      "course_paid": 1,
+      "amount": "666.00",
+      "payment_type": "Наличные"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "date_payment": "2024-09-13T05:20:03.623Z",
+      "lesson_paid": 3,
+      "course_paid": 2,
+      "amount": "333.00",
+      "payment_type": "Наличные"
+    }
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "model": "materials.lesson",
+    "pk": 4,
+    "fields": {
+      "title": "Вьюсеты и generics",
+      "image": "",
+      "description": null,
+      "video_url": null
+    }
+  },
+  {
+    "model": "materials.course",
+    "pk": 3,
+    "fields": {
+      "title": "Курсы без уроков",
+      "image": "",
+      "description": null,
+      "lesson": null
+    }
+  },
+  {
+    "model": "materials.course",
+    "pk": 4,
+    "fields": {
+      "title": "DRF",
+      "image": "",
+      "description": null,
+      "lesson": 4
+    }
+  }
+]

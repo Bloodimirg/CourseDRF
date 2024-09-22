@@ -5,9 +5,11 @@ from materials.models import Course, Lesson
 
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):
-    list_display = ("title", "description", "video_url")
+    """Админка уроков"""
+    list_display = ("pk", "title", "course", "description", "video_url", "owner")
 
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ("title", "description", "lesson")
+    """Админка курсов"""
+    list_display = ("pk", "title", "image", "description", "owner")
