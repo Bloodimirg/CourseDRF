@@ -11,6 +11,7 @@ from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
 from materials.models import Course, Lesson, Subscription
+from materials.paginations import CustomPagination
 from materials.serializers import (
     CourseSerializer,
     LessonSerializer, SubscriptionSerializer,
@@ -23,6 +24,7 @@ class CourseViewSet(ModelViewSet):
     """ViewSet для управления курсами. POST/GET/PUT(PATCH)/DELETE"""
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
+    pagination_class = CustomPagination
 
     def perform_create(self, serializer):
         course = serializer.save()
@@ -64,6 +66,8 @@ class LessonListApiView(ListAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
     permission_classes = (IsAuthenticated, IsOwner | IsModerator)
+    pagination_class = CustomPagination
+
     # фильтрация отображения списка объектов только для модератора или владельца объекта
     def get_queryset(self):
         user = self.request.user
