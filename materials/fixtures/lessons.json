@@ -1,32 +1,62 @@
 [
   {
     "model": "materials.lesson",
-    "pk": 4,
+    "pk": 8,
     "fields": {
-      "title": "Вьюсеты и generics",
+      "title": "Lesson-USER1",
       "image": "",
       "description": null,
-      "video_url": null
+      "video_url": null,
+      "course": 6,
+      "owner": 3
     }
   },
   {
-    "model": "materials.course",
-    "pk": 3,
+    "model": "materials.lesson",
+    "pk": 9,
     "fields": {
-      "title": "Курсы без уроков",
+      "title": "Lesson2-USER1",
       "image": "",
       "description": null,
-      "lesson": null
+      "video_url": "https://youtube.com",
+      "course": 6,
+      "owner": 3
     }
   },
   {
-    "model": "materials.course",
-    "pk": 4,
+    "model": "materials.lesson",
+    "pk": 10,
     "fields": {
-      "title": "DRF",
+      "title": "Lesson3-USER1",
       "image": "",
       "description": null,
-      "lesson": 4
+      "video_url": "https://youtube.com",
+      "course": 6,
+      "owner": 3
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 11,
+    "fields": {
+      "title": "Lesson4-USER1",
+      "image": "",
+      "description": null,
+      "video_url": "https://youtube.com",
+      "course": 6,
+      "owner": 3
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 12,
+    "fields": {
+      "title": "Lesson5-USER1",
+      "image": "",
+      "description": null,
+      "video_url": "https://youtube.com",
+      "course": 6,
+      "owner": 3
     }
   }
 ]
