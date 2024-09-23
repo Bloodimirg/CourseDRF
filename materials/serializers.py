@@ -1,12 +1,12 @@
 from rest_framework import serializers
 
-from materials.models import Course, Lesson
+from materials.models import Course, Lesson, Subscription
 from materials.validators import validate_urls
 
 
 class LessonSerializer(serializers.ModelSerializer):
     """Информация об уроках"""
-    url_validator = serializers.URLField(validators=[validate_urls])
+    video_url = serializers.URLField(validators=[validate_urls])
 
     class Meta:
         model = Lesson
@@ -33,3 +33,8 @@ class CourseSerializer(serializers.ModelSerializer):
             "lessons",
         ]
 
+class SubscriptionSerializer(serializers.ModelSerializer):
+    """Подписка на курс"""
+    class Meta:
+        model = Subscription
+        fields = "__all__"
