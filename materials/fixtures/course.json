@@ -1,20 +1,12 @@
 [
   {
     "model": "materials.course",
-    "pk": 1,
+    "pk": 6,
     "fields": {
-      "title": "DRF",
+      "title": "Course-USER1",
       "image": "",
-      "description": null
-    }
-  },
-  {
-    "model": "materials.course",
-    "pk": 2,
-    "fields": {
-      "title": "Курс по PostgreSQL",
-      "image": "",
-      "description": ""
+      "description": null,
+      "owner": 3
     }
   }
 ]
