@@ -95,6 +95,7 @@ class LessonDestroyApiView(DestroyAPIView):
     permission_classes = (IsAuthenticated, IsOwner | ~IsModerator)
 
 class SubscriptionViewSet(APIView):
+    """Подписка на курс"""
     serializer_class = SubscriptionSerializer
     permission_classes = (IsAuthenticated, IsModerator | IsOwner)
 
