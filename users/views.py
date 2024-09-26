@@ -10,6 +10,7 @@ from rest_framework.generics import (
 from rest_framework.permissions import AllowAny
 from users.models import Payment, User
 from users.serializers import PaymentSerializer, UserSerializer
+from users.services import create_stripe_price, create_stripe_sessions, create_stripe_product
 
 
 class UserCreateApiView(CreateAPIView):
@@ -28,6 +29,14 @@ class PaymentCreateApiView(CreateAPIView):
     queryset = Payment.objects.all()
     serializer_class = PaymentSerializer
 
+    def perform_create(self, serializer):
+        payment = serializer.save(user=self.request.user)  # Создается запись оплаты в БД
+        product_id = create_stripe_product(payment)  # Создаем продукт в Stripe
+        price = create_stripe_price(payment.amount, product_id)  # Создаем цену в Stripe
+        session_id, payment_link = create_stripe_sessions(price)  # Создаем сессию оплаты в Stripe
+        payment.session_id = session_id  # Сохраняем ID сессии оплаты в БД
+        payment.payment_link = payment_link  # Сохраняем ссылку на оплату в БД
+        payment.save()  # Сохраняем
 
 class PaymentUpdateApiView(UpdateAPIView):
     """Изменение платежа"""
