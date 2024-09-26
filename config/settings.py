@@ -97,6 +97,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+STRIPE_API_KEY = os.getenv("STRIPE_API_KEY")
 
 LANGUAGE_CODE = "ru-ru"
 
