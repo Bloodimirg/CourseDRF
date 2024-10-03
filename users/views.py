@@ -8,8 +8,10 @@ from rest_framework.generics import (
     UpdateAPIView,
 )
 from rest_framework.permissions import AllowAny
+from rest_framework_simplejwt.views import TokenObtainPairView
+
 from users.models import Payment, User
-from users.serializers import PaymentSerializer, UserSerializer
+from users.serializers import PaymentSerializer, UserSerializer, CustomTokenObtainPairSerializer
 from users.services import create_stripe_price, create_stripe_sessions, create_stripe_product
 
 
@@ -68,3 +70,6 @@ class PaymentDestroyApiView(DestroyAPIView):
     """Удаление платежа"""
     queryset = Payment.objects.all()
     serializer_class = PaymentSerializer
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer
