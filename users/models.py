@@ -14,6 +14,9 @@ class User(AbstractUser):
     country = models.CharField(max_length=50, **NULLABLE, verbose_name="Страна (Не обязательно)")
     avatar = models.ImageField(upload_to="users/avatars", **NULLABLE, verbose_name="Аватар (Не обязательно)")
 
+    last_login = models.DateTimeField(auto_now=False, verbose_name='Дата последнего входа', **NULLABLE)
+
+
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
