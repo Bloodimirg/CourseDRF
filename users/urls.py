@@ -7,10 +7,9 @@ from users.views import (
     PaymentDestroyApiView,
     PaymentListApiView,
     PaymentRetrieveApiView,
-    PaymentUpdateApiView, UserCreateApiView,
+    PaymentUpdateApiView, UserCreateApiView, CustomTokenObtainPairView,
 )
 from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
     TokenRefreshView,
 )
 
@@ -24,6 +23,6 @@ urlpatterns = [
     path('payment/<int:pk>/delete/', PaymentDestroyApiView.as_view(), name='payment-delete'),
 
     path('register/', UserCreateApiView.as_view(permission_classes=(AllowAny,)), name='register'),
-    path('login/', TokenObtainPairView.as_view(permission_classes=(AllowAny,)), name='login'),
+    path('login/', CustomTokenObtainPairView.as_view(permission_classes=(AllowAny,)), name='login'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
