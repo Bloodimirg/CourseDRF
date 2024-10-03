@@ -4,7 +4,6 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$870000$p69wtPtKsKA11kdcqrnfBR$gPuCEfXfsI4s+KjDugs65PRIF375EtLT/W+nMXJqBOw=",
-      "last_login": "2024-09-16T18:27:12.441Z",
       "is_superuser": true,
       "first_name": "",
       "last_name": "",
@@ -15,6 +14,7 @@
       "phone": null,
       "country": null,
       "avatar": "",
+      "last_login": "2024-09-16T00:00:00Z",
       "groups": [],
       "user_permissions": []
     }
@@ -24,7 +24,6 @@
     "pk": 2,
     "fields": {
       "password": "pbkdf2_sha256$870000$XTgF5UQxtL3In46z7qC8Gw$a681/nrIK1bTj8MRioS9VzvDcz6ykLxRRPUE5UkVkwk=",
-      "last_login": null,
       "is_superuser": false,
       "first_name": "",
       "last_name": "",
@@ -35,6 +34,7 @@
       "phone": null,
       "country": null,
       "avatar": "",
+      "last_login": null,
       "groups": [
         1
       ],
@@ -46,17 +46,17 @@
     "pk": 3,
     "fields": {
       "password": "pbkdf2_sha256$870000$WypRpA3ZP0XmDOXe9C41qw$rAvWQfQXhks7gEnL5m8HDDDB+KgBT1UCqEyfVKYiUck=",
-      "last_login": null,
       "is_superuser": false,
       "first_name": "",
       "last_name": "",
       "is_staff": false,
-      "is_active": true,
+      "is_active": false,
       "date_joined": "2024-09-16T16:42:14.928Z",
       "email": "user1@mail.ru",
       "phone": null,
       "country": null,
       "avatar": "",
+      "last_login": "2024-10-03T12:50:19.286Z",
       "groups": [],
       "user_permissions": []
     }
@@ -66,7 +66,6 @@
     "pk": 4,
     "fields": {
       "password": "pbkdf2_sha256$870000$8igUjcAL90PgXSjeOrVW9W$kZc9muiwdRxRS4AQhjg1eejuQmvK4obZb9CdpwfRcFo=",
-      "last_login": null,
       "is_superuser": false,
       "first_name": "",
       "last_name": "",
@@ -77,6 +76,27 @@
       "phone": null,
       "country": null,
       "avatar": "",
+      "last_login": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$42C9wrpRO37K4aPToSl0Pi$KeYuAGHB+xJ9JJynoTKr7QjQX+gC6u2NrYiNWGipvao=",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-10-03T11:21:50.404Z",
+      "email": "bloodimirg@mail.ru",
+      "phone": null,
+      "country": null,
+      "avatar": "",
+      "last_login": null,
       "groups": [],
       "user_permissions": []
     }
